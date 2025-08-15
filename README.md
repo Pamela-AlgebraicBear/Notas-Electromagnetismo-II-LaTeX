@@ -1,6 +1,6 @@
 # 📘 LaTeX - Notas de Electromagnetismo II
 
-Este repositorio contiene mi transcripción de las notas del curso (con detalles adicionales) del trabajo de Jonathan Alexis Urrutia Anguiano, profesor de dicho curso, en el semestre 2026-1.
+Este repositorio contiene mi transcripción de las notas del curso Electromagnetismo II, impartido en la Facultad de Ciencias durante el semestre 2026-1. El material se basa en el trabajo del profesor Jonathan Alexis Urrutia Anguiano, e incluye algunos detalles y comentarios adicionales propios.
 
 ## 📚 Contenido
 

@@ -1,3 +1,4 @@
+![no hace nada](https://github.com/user-attachments/assets/03b71c8e-7447-45dd-813d-bbf3253fb5f7)
 # 📘 LaTeX - Notas de Electromagnetismo II
 
 Este repositorio contiene mi transcripción de las notas del curso Electromagnetismo II, impartido en la Facultad de Ciencias durante el semestre 2026-1. El material se basa en el trabajo del profesor Jonathan Alexis Urrutia Anguiano, e incluye algunos detalles y comentarios adicionales propios.

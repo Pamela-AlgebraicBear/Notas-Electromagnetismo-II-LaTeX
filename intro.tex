@@ -1,0 +1,169 @@
+\documentclass{electro}
+
+% --- Información del documento ---
+\title{Notas del curso}
+
+\date{\today}
+\subtitle={Electromagnetismo II}
+\subject={Notas de Electromagnetismo II}
+
+% --- Archivo de bibliografía ---
+%\addbibresource{repbib.bib}
+
+% --- Inicio del documento ---
+\begin{document}
+%\pagecolor{principaldos}
+	
+	\pagestyle{fancy}
+	\unspacedoperators
+	
+% --- Título ---
+		\begin{center}
+			\maketitle
+			
+			{\begin{tcolorbox}[colframe=white, colback=principaluno!45, arc=8pt]
+				
+	   Esta sección introduce los temas centrales del curso Electromagnetismo II, basados en las notas del profesor Jonathan Alexis Urrutia Anguiano. La transcripción y adaptación de estas notas a \(LaTeX\) fueron realizadas por Pamela Sánchez Canales, con fines educativos.
+
+			\end{tcolorbox}}
+
+			\smallskip
+		\end{center}
+	
+
+	\saythanks
+        
+	\selectlanguage{spanish}
+
+    
+    \section*{0. Intro}
+        Electromagnetismo, una de las cuatro fuerzas fundamentales de la naturaleza; descrito en su totalidad por las ecuaciones de Maxwell y la fuerza de Lorentz.
+        \subsection*{Ecuaciones de Maxwell}
+        Las 4 ecuaciones de Maxwell (SI) diferenciales, parciales y acopladas $\dots$ pero lineales. En su forma diferencial:
+        \begin{equation}
+            \Div \vec{E} = \frac{\rho_{tot}}{\varepsilon_0}
+        \label{eq:1D Maxwell}
+        \end{equation}
+        \begin{equation}
+                \Div \vec{B}=0
+            \label{eqn:2D Maxwell}
+        \end{equation}
+        \begin{equation}
+            \rot \vec{E}=-\dpuno {\vec{B}}{t}
+            \label{eqn:3D Maxwell}
+        \end{equation}
+        \begin{equation}
+            \rot \vec{B}=\mu_0 \vec{J}_{tot}+\varepsilon_0 \mu_0 \dpuno {\vec{E}}{t}
+            \label{eqn:4D Maxwell}
+        \end{equation}
+    
+    Donde usando teorema de la divergencia en las primeras dos ecuaciones, podemos llegar a su respectiva forma integral.
+
+    \begin{tcolorbox}[colframe=white, colback=principaluno!40, arc=8pt, left=2mm, right=2mm, top=2mm, bottom=2mm]
+    \textbf{Teorema de la divergencia de Gauss (Forma electromagnética)}:\\
+    Sea $\vec{F}: U \subset \mathbb{R}^3 \rightarrow \mathbb{R}^3$ un campo vectorial de clase $C^1$ en $U$, y $\Omega \subset U$ una región cerrada con superficie frontera $\partial \Omega$. Entonces:
+    \[\int_{\Omega} (\nabla \cdot \vec{F}) \, dV = \oint_{\partial \Omega} \vec{F} \cdot \vec{dA}\]
+    donde $d\vec{A} = \mathbf{\hat{n}} \, dA$ es el vector de área infinitesimal con dirección normal hacia afuera de $\partial \Omega$.
+    \end{tcolorbox}
+    Es decir, para la ecuación (\ref{eq:1D Maxwell})
+    \[\int_{\Omega} \Div{\vec{E}} \,dV = \oint_{\partial \Omega} \vec{E} \cdot d\vec{a}\]
+    Sustituyendo
+    \[\int_{\Omega} \frac{\rho_{\text{tot}}}{\varepsilon_0}=\oint_{\partial \Omega} \vec{E} \cdot d\vec{a}\]
+    \[=\frac{1}{\varepsilon_0} \underbrace{\int_{\Omega} \rho_{\text{tot}}}_{ Q_{\text{tot}}^{\text{enc}}}=\oint_{\partial\Omega}\vec{E} \cdot d\vec{a}\]
+    \[\Rightarrow \frac{Q_{\text{tot}}^{\text{enc}}}{\varepsilon_0}=\oint_{\partial \Omega} \vec{E} \cdot d\vec{a}\]
+    La cual es la primer ecuación de Maxwell en su forma integral
+    \begin{tcolorbox}[colframe=white, colback=secdos!40, arc=8pt, left=2mm, right=2mm, top=2mm, bottom=2mm]
+    \begin{equation}
+        \oint_{\partial \Omega} \vec{E} \cdot d\vec{A} = \frac{Q_{\text{tot}}^{\text{enc}}}{\varepsilon_0}
+        \tag{Gauss campo eléctrico}
+    \end{equation}
+    \end{tcolorbox}
+    
+    Y, para la ecuación (\ref{eqn:2D Maxwell}), nuevamente usaremos el Teorema de divergencia de Gauss, así
+    \[\int_{\Omega} \Div{\vec{B}} \, dV = \oint_{\partial \Omega} \vec{B} \cdot d\vec{a}\]
+    Sustituyendo, entonces
+    \[\int_{\Omega} 0 = \oint_{\partial \Omega} \vec{B} \cdot d \vec{a}\]
+    Es decir, llegamos a la segunda ecuación de Maxwell en su forma integral
+    \begin{tcolorbox}[colframe=white, colback=secdos!40, arc=8pt, left=2mm, right=2mm, top=2mm, bottom=2mm]
+    \begin{equation}
+        \oint_{\partial \Omega} \vec{B} \cdot d\vec{A} = 0
+        \tag{Gauss campo magnético}
+    \end{equation}
+    \end{tcolorbox}
+    
+    Mientras que para las últimas dos ecuaciones hacemos uso del teorema de Stokes.
+    
+    \begin{tcolorbox}[colframe=white, colback=principaluno!40, arc=8pt, left=2mm, right=2mm, top=2mm, bottom=2mm]
+    \textbf{Teorema de Stokes (Forma electromagnética)}:\\
+    Sea $\vec{F}: U \subset \mathbb{R}^3 \rightarrow \mathbb{R}^3$ un campo vectorial de clase $C^1$ en $U$, y $S \subset U$ una superficie orientable con frontera $\partial S$ (una curva cerrada simple). Entonces:
+    \[\int_S (\nabla \times \vec{F}) \cdot d\vec{A} = \oint_{\partial S} \vec{F} \cdot d\vec{l}\]
+    donde:
+    \begin{itemize}
+    \item $d\vec{A} = \mathbf{\hat{n}} \, dA$ es el vector de área infinitesimal (normal a $S$).
+    \item $d\vec{l}$ es el elemento de línea tangente a $\partial S$.
+    \end{itemize}
+    \end{tcolorbox}
+
+    Así, para la ecuación (\ref{eqn:3D Maxwell}), usando el Teorema de Stokes
+    \[\int_{S} \rot{\vec{E}} \cdot d\vec{a}=\oint_{\partial S}\vec{E} \cdot d\vec{l}\]
+    Así, sustituyendo
+    \[\int_S -\dpuno{\vec{B}}{t} \cdot d\vec{a} = \oint_{\partial S} \vec{E} \cdot d \vec{l}\]
+    Dado que la superficie $S$ es fija y $\vec{B}$ es diferenciable en el tiempo, podemos intercambiar la derivada temporal con la integral (Teorema de Leibniz), es decir
+    \[-\frac{d}{dt}\int_S \vec{B} \cdot d\vec{a} = \oint_{\partial S} \vec{E} \cdot d\vec{l}\]
+    Así llegamos a la tercer ecuación de Maxwell en su forma integral
+    \begin{tcolorbox}[colframe=white, colback=secdos!40, arc=8pt, left=2mm, right=2mm, top=2mm, bottom=2mm]
+    \begin{equation}
+        \oint_{\partial S} \vec{E} \cdot d\vec{l}=-\frac{d}{dt}\int_S \vec{B} \cdot d\vec{a}
+        \tag{Maxwell-Faraday}
+    \end{equation}
+    \end{tcolorbox}
+    
+    Y para la ecuación (\ref{eqn:4D Maxwell}), nuevamente usando Teorema de Stokes
+    \[\int_S \rot{\vec{B}} \cdot d\vec{a} = \oint_{\partial S} \vec{B} \cdot d\vec{l}\]
+    Sustituyendo
+    \[\int_S \mu_0 \vec{J}_{\text{tot}}+\varepsilon_0 \mu_0 \dpuno{\vec{E}}{t} \cdot d\vec{a}=\oint_{\partial S} \vec{B} \cdot d\vec{l} \]
+    Separamos la integral y sacamos constantes
+    \[\mu_0\underbrace{\int_S\vec{J}_{\text{tot}} \cdot d\vec{a}}_{I_{\text{tot}}^{\text{enc}}} + \varepsilon_0 \mu_0 \underbrace{\int_{S}\dpuno{\vec{E}}{t} \cdot d\vec{a}}_{\text{Teo. de Leibniz}} = \oint_{\partial S} \vec{B} \cdot d\vec{l}\]
+    Así
+    \[\mu_0 I_{\text{tot}}^{enc}+\varepsilon_0 \mu_0 \frac{d}{dt} \int_{S} \vec{E} \cdot d\vec{a}=\oint_{\partial S} \vec{B} \cdot d\vec{l}\]
+    Y así, obtenemos la cuarta ecuación de Maxwell en su forma integral
+    \begin{tcolorbox}[colframe=white, colback=secdos!40, arc=8pt, left=2mm, right=2mm, top=2mm, bottom=2mm]
+    \begin{equation}
+        \oint_{\partial S} \vec{B} \cdot d\vec{l}=\mu_0 I_{\text{tot}}^{\text{enc}}+\varepsilon_0 \mu_0 \frac{d}{dt}\int_S \vec{E}\cdot d\vec{a} 
+        \tag{Ampère-Maxwell}
+    \end{equation}
+    \end{tcolorbox}
+    
+    Así, finalmente obtenemos las 4 ecuaciones de Maxwell en su forma integral:
+    \begin{equation}
+        \oint_{\partial \Omega} \vec{E} \cdot d\vec{A} = \frac{Q_{\text{tot}}^{\text{enc}}}{\varepsilon_0}
+        \label{eqn:1I Maxwell}
+    \end{equation}
+
+    \begin{equation}
+        \oint_{\partial \Omega} \vec{B} \cdot d\vec{A} = 0
+        \label{eqn:2I Maxwell}
+    \end{equation}
+    \begin{equation}
+        \oint_{\partial S} \vec{E} \cdot d\vec{l}=-\frac{d}{dt}\int_S \vec{B} \cdot d\vec{a}
+        \label{eqn:3I Maxwell}
+    \end{equation}
+
+    \begin{equation}
+        \oint_{\partial S} \vec{B} \cdot d\vec{l}=\mu_0 I_{\text{tot}}^{\text{enc}}+\varepsilon_0 \mu_0 \frac{d}{dt}\int_S \vec{E}\cdot d\vec{l}
+        \label{eqn:4I Maxwell}
+    \end{equation}
+    
+    \subsection*{Fuerza de Lorentz}
+    Definida como 
+    \begin{equation}
+        \vec{F}=q \vec{E}+q \vec{v} \times \vec{B} \longrightarrow \vec{f}=\rho_{tot}\vec{E}+\vec{J}_{tot} \times \vec{B}
+        \label{eqn:FLorentz}
+    \end{equation}
+    
+    Donde $\rho_{\text{tot}}$ representa la densidad de carga total, $\vec{J}_{\text{tot}}$ representa la densidad de corriente total, $\vec{E}$ el campo eléctrico y $\vec{B}$ el campo magnético. Y donde $q\vec{E}$ es la fuerza eléctrica, $q \vec{v} \times \vec{B}$ es la fuerza magnética;  y en la versión para densidades de carga y corriente, $\rho_{\text{tot}}\vec{E}$ es la fuerza eléctrica por unidad de volumen y $\vec{J}_{\text{tot}} \times \vec{B}$ es la fuerza magnética por unidad de volumen.\\
+    
+    En este curso entenderemos el significado de cada uno de los términos anteriores, así como el significado de cada ecuación, algunas soluciones analíticas y técnicas para su resolución.
+
+
+\end{document}
